@@ -1,0 +1,31 @@
+<div class="container" *ngIf="tour">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0;">
+                <mat-error class="alert alert-primary">{{status}}</mat-error>
+                <mat-card-title style="color: #bd4147" class="alert alert-primary">Tour name</mat-card-title>
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Name Tour:</b>{{tour.name}}</mat-card-title>
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Price Tour:</b>{{tour.price}}</mat-card-title>
+
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Description:</b>{{tour.desciption}}</mat-card-title>
+
+                <!--                <img class="image" [src]="category.avatarCategory">-->
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0;">
+                <form class="delete-category" #f="ngForm" (ngSubmit)="ngSubmit()&&f.form.valid" novalidate>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Delete
+                        <mat-icon color="accent" matSuffix>delete</mat-icon>
+                    </button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+

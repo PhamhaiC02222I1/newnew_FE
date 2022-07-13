@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <mat-card-title align="center" class="alert alert-primary">PAGE PRODUCT</mat-card-title>
+                <div class="search">
+                    <!--                    <mat-form-field class="search" style="width: 350px" appearance="outline">-->
+                    <!--                                                <mat-label>Search Category</mat-label>-->
+                    <!--                                                <input matInput [(ngModel)]="searchText">-->
+                    <!--                                                <mat-icon  color="accent" matSuffix>search</mat-icon>-->
+                    <!--                                            </mat-form-field><br>-->
+                </div>
+                <div class="search1">
+                    <mat-form-field class="search1" style="width: 350px" appearance="outline">
+                        <mat-label>Search Category</mat-label>
+                        <input matInput (input)="onSearch()" [(ngModel)]="nameProduct">
+                        <mat-icon color="accent" matSuffix>search</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <button *ngIf="isCheckUser" routerLink="/create-product" mat-stroked-button color="accent"
+                            class="mat-button-toggle-group btn-outline-primary">Create Product
+                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                    </button>
+                </div>
+                <br>
+                <div class="row" *ngIf="checkSearch">
+                    <div class="column" *ngFor="let category of searchProducts">
+                        <button *ngIf="isCheckUser" [routerLink]="['/update-product/',category.id]"
+                                style="color: #9C27B0" mat-icon-button>
+                            <mat-icon color="accent">edit</mat-icon>
+                        </button>
+                        <button *ngIf="isCheckUser" [routerLink]="['/delete-product/',category.id]"
+                                style="color: #9C27B0" mat-icon-button>
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                        <div class="card">
+                            <i style="font-size: 1.5vw; color: crimson">{{category.nameProduct}}</i>
+                        </div>
+                        <div class="card">
+                            <img class="img" [src]="category.avatarProduct">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="!checkSearch">
+                    <div class="column" *ngFor="let category of products | filter:searchText">
+                        <button *ngIf="isCheckUser" [routerLink]="['/update-product/',category.id]"
+                                style="color: #9C27B0" mat-icon-button>
+                            <mat-icon color="accent">edit</mat-icon>
+                        </button>
+                        <button *ngIf="isCheckUser" [routerLink]="['/delete-product/',category.id]"
+                                style="color: #9C27B0" mat-icon-button>
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                        <div class="card">
+                            <i style="font-size: 1.5vw; color: crimson">NameProduct: {{category.nameProduct}}</i>
+                        </div>
+                        <div class="card">
+                            <img class="img" [src]="category.avatarProduct">
+                        </div>
+                    </div>
+                </div>
+                <mat-paginator [pageSizeOptions]="[5,15,30,90]" [length]="totalElements"
+                               (page)="nextPage($event)"></mat-paginator>
+            </mat-card>
+        </div>
+    </div>
+
+</div>
+

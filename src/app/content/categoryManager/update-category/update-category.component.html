@@ -1,0 +1,43 @@
+<div class="container" *ngIf="category">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0; text-align: center">
+                <mat-card-title style="color: #bd4147" class="alert alert-primary">Old Category name</mat-card-title>
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Name
+                    Category:</b>{{category.name}}</mat-card-title>
+<!--                <img class="image" [src]="category.avatarCategory">-->
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0;">
+                <form class="edit-category" #f="ngForm" (ngSubmit)="ngSubmit()&&f.form.valid" novalidate>
+
+                    <mat-error class="alert alert-primary">{{status}}</mat-error><mat-card-title style="color: #2b542c" class="alert alert-warning">New Category Name
+                    </mat-card-title>
+                    <mat-form-field style="width: 300px;" appearance="outline">
+                        <mat-label>New Name Category:</mat-label>
+                        <input name="name" matInput placeholder="Fill name category in the form ..."
+                               [(ngModel)]="category.name" #name="ngModel" required>
+                        <mat-icon color="accent" matSuffix>edit</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <!--                    <mat-error *ngIf="f.submitted&&nameCategory.invalid">-->
+                    <!--                        <mat-error *ngIf="nameCategory.errors.required">{{errorMessage}}</mat-error>-->
+                    <!--                    </mat-error>-->
+<!--                    <mat-error>{{errorMessage}}</mat-error><br>-->
+
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Update
+                        <mat-icon color="accent" matSuffix>edit</mat-icon>
+                    </button>
+                </form>
+<!--                <app-upload-avatar (giveURLtoCreate)="onAvatar($event)"></app-upload-avatar>-->
+<!--                <mat-error *ngIf="!addAvatar">If you want change avatar, please upload!</mat-error>-->
+
+            </mat-card>
+        </div>
+    </div>
+</div>

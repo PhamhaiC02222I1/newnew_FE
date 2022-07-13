@@ -1,0 +1,36 @@
+<div class="container" *ngIf="userAccount">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card class="mat-card" style="margin: 50px 0;">
+                <mat-error style="text-align: center" class="alert alert-primary">{{status}}</mat-error>
+                <br>
+                <br>
+<!--                <mat-card-title style="color: #bd4147" class="alert alert-primary">Category name</mat-card-title>-->
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Name: </b>{{userAccount.name}}</mat-card-title>
+<!--                <mat-card-title style="color: #bd4147" class="alert alert-primary">Category UserName</mat-card-title>-->
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">UserName: </b>{{userAccount.username}}</mat-card-title>
+<!--                <mat-card-title style="color: #bd4147" class="alert alert-primary">Category Email</mat-card-title>-->
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Email: </b>{{userAccount.email}}</mat-card-title>
+<!--                <mat-card-title style="color: #bd4147" class="alert alert-primary">Category Avatar</mat-card-title>-->
+<!--                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Avatar</b>{{userAccount.avatar}}</mat-card-title>-->
+<!--                <mat-card-title style="color: #bd4147" class="alert alert-primary">Category Role</mat-card-title>-->
+                <mat-card-title *ngFor="let role of userAccount.roles" style="color: #ff03cc"><b style="color: #2b542c">Role: </b>{{role.name}}</mat-card-title>
+
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0;">
+                <form class="delete-user" #f="ngForm" (ngSubmit)="ngSubmit()&&f.form.valid" novalidate>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Delete
+                        <mat-icon color="accent" matSuffix>delete</mat-icon>
+                    </button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
+

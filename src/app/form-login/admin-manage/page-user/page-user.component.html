@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+<!--            <mat-error *ngIf="checkDelete" class="alert alert-primary">{{status}}</mat-error>-->
+            <mat-card style="margin: 50px 0">
+                <mat-card-title align="center" class="alert alert-primary">ADMIN MANAGE</mat-card-title>
+                <div class="search">
+<!--                    <mat-form-field class="search" style="width: 350px" appearance="outline">-->
+<!--                        <mat-label>Search User</mat-label>-->
+<!--                        <input matInput  [(ngModel)]="searchText">-->
+<!--                        <mat-icon  color="accent" matSuffix>search</mat-icon>-->
+<!--                    </mat-form-field><br>-->
+<!--                    <button *ngIf="isCheckUser" routerLink="/create-category" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create Category-->
+<!--                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>-->
+<!--                    </button>-->
+                </div>
+                <div class="search1">
+                    <mat-form-field class="search1" style="width: 350px" appearance="outline">
+                        <mat-label>Search User </mat-label>
+                        <input matInput (input)="onSearch()" [(ngModel)]="username">
+                        <mat-icon  color="accent" matSuffix>search</mat-icon>
+                    </mat-form-field><br>
+                    <!--                    <button *ngIf="isCheckUser" routerLink="/create-category" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create Category-->
+                    <!--                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>-->
+                    <!--                    </button>-->
+                    <button *ngIf="isCheckUser" routerLink="/register" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create User
+                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                    </button>
+                </div>
+                <div class="row" *ngIf="checkSearch">
+                    <div class="column" *ngFor="let user of userSearch">
+
+                        <!--                        <button mat-icon-button (click)="openDialog(user.id)">-->
+                        <!--                            <mat-icon color="warn">delete</mat-icon>-->
+                        <!--                        </button>-->
+                        <!--                        <button [routerLink]="['/change-role/',user.id]" mat-icon-button color="primary">-->
+                        <!--                            <mat-icon>edit</mat-icon>-->
+                        <!--                        </button>-->
+                        <div class="card">
+                            <i style="font-size: 1.5vw; color: crimson">{{user.username}}</i>
+                            <i style="font-size: 1.5vw; color: crimson">{{user.email}}</i>
+                            <img class="img" [src]="user.avatar">
+                            <div *ngFor="let role of user.roles">
+                                <i>{{role.name}}</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="!checkSearch">
+                    <div class="column" *ngFor="let user of users|filter:searchText">
+<!--                        <button mat-icon-button (click)="openDialog(user.id)">-->
+<!--                            <mat-icon color="warn">delete</mat-icon>-->
+<!--                        </button>-->
+<!--                        <button [routerLink]="['/change-role/',user.id]" mat-icon-button color="primary">-->
+<!--                            <mat-icon>edit</mat-icon>-->
+<!--                        </button>-->
+                        <button *ngIf="isCheckUser"  [routerLink]="['/delete-user/',user.id]" style="color: #9C27B0" mat-icon-button >
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                        <div class="card">
+                            <i style="font-size: 1.5vw; color: crimson">{{user.username}}</i>
+                            <i style="font-size: 1.5vw; color: crimson">{{user.email}}</i>
+                            <img class="img" [src]="user.avatar">
+                            <div *ngFor="let role of user.roles">
+                                <i>{{role.name}}</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <mat-paginator [pageSizeOptions]="[5,15,30,90]" [length]="totalElements" (page)="nextPage($event)"></mat-paginator>
+            </mat-card>
+        </div>
+    </div>
+</div>

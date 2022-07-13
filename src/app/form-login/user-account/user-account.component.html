@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card id="example-card" style="margin: 50px 0">
+                <div style="height: 800px;width: 800px" class="example-card">
+                    <mat-card-header>
+                        <img style="border-radius: 50%" class="image1" routerLink="/change-avatar" [src]="avatar" height="100px" width="100px" >
+                    </mat-card-header>
+                    <img style="border-radius: 50%" class="image2" routerLink="/change-avatar" mat-card-image [src]="avatar" height="600px" width="300px">
+                </div>
+                <button routerLink="/change-password" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Change Password
+                    <mat-icon color="accent" matSuffix>published_with_changes</mat-icon>
+                </button>
+                <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary" (click)="logOut()">Log Out
+                    <mat-icon color="accent" matSuffix><span class="material-symbols-outlined">logout
+                </span></mat-icon>
+                </button>
+                <button routerLink="/change-avatar" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Change Avatar
+                    <mat-icon color="accent" matSuffix>published_with_changes</mat-icon>
+                </button>
+                <button routerLink="/change-profile" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-warning">Change Profile
+                    <mat-icon color="accent" matSuffix>published_with_changes</mat-icon>
+                </button>
+<!--                <button  mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-danger" (click)="logOut()">Log Out-->
+<!--                    <mat-icon color="accent" matSuffix>logout</mat-icon>-->
+<!--                </button>-->
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div *ngIf="isCheckAdmin">
+    <app-page-user></app-page-user>
+</div>
