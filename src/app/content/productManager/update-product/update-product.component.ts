@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Category} from '../../../model/Category';
 import {Product} from '../../../model/Product';
 import {ActivatedRoute} from '@angular/router';
@@ -15,7 +15,7 @@ export class UpdateProductComponent implements OnInit {
   // @ts-ignore
   products: Product = new Product();
   animalControl = new FormControl('', Validators.required);
-  category:Category[];
+  category: Category[];
   status = 'Please fill  in the form to edit product';
   error1: any = {
     message: 'product name is existed'
@@ -23,9 +23,11 @@ export class UpdateProductComponent implements OnInit {
   success: any = {
     message: 'update success'
   };
-  form:any={};
-  checkAvatar=false;
-  constructor(private actRouter: ActivatedRoute,private categoryService:CategoryService,private productService:ProductService) { }
+  form: any = {};
+  checkAvatar = false;
+
+  constructor(private actRouter: ActivatedRoute, private categoryService: CategoryService, private productService: ProductService) {
+  }
 
   ngOnInit(): void {
 
@@ -36,11 +38,12 @@ export class UpdateProductComponent implements OnInit {
 
       });
     });
-    this.categoryService.getListCategory().subscribe(data1=>{
-      this.category=data1;
-      console.log('data1======',this.category);
-    })
+    this.categoryService.getListCategory().subscribe(data1 => {
+      this.category = data1;
+      console.log('data1======', this.category);
+    });
   }
+
   ngSubmit() {
     // this.products=new Product(
     //   this.form.nameProduct,
@@ -48,7 +51,7 @@ export class UpdateProductComponent implements OnInit {
     //   this.form.avatarProduct,
     //   this.form.category
     // )
-    console.log('product============',this.products);
+    console.log('product============', this.products);
     this.productService.updateProduct(this.products.id, this.products).subscribe(data => {
       if (JSON.stringify(data) == JSON.stringify(this.error1)) {
         this.status = 'the Name Product is existed! please try again';
@@ -59,8 +62,9 @@ export class UpdateProductComponent implements OnInit {
       }
     });
   }
-  onChangeAvatar($event){
-    this.products.avatarProduct=$event;
-    this.checkAvatar=true;
+
+  onChangeAvatar($event) {
+    this.products.avatarProduct = $event;
+    this.checkAvatar = true;
   }
 }

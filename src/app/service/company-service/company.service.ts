@@ -24,5 +24,14 @@ private API_COMPANY=environment.API_LOCAL+'company';
   createCompany(company:Company):Observable<Company>{
     return this.http.post<Company>(this.API_COMPANY,company);
   }
+  getCompanyById(id:number):Observable<Company>{
+    return this.http.get<Company>(`${this.API_COMPANY}/${id}`)
+  }
+  deleteCompany(id:number):Observable<Company>{
+    return this.http.delete<Company>(`${this.API_COMPANY}/${id}`);
+  }
+  updateCompany(id:number,company:Company):Observable<Company>{
+    return this.http.put<Company>(`${this.API_COMPANY}/${id}`,company);
+  }
 }
 

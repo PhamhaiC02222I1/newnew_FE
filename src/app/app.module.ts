@@ -58,6 +58,9 @@ import { PageTourComponent } from './content/tourManager/page-tour/page-tour.com
 import { CreateTourComponent } from './content/tourManager/create-tour/create-tour.component';
 import { DeleteTourComponent } from './content/tourManager/delete-tour/delete-tour.component';
 import { EditTourComponent } from './content/tourManager/edit-tour/edit-tour.component';
+import { DetailTourComponent } from './content/tourManager/detail-tour/detail-tour.component';
+import { DeleteCompanyComponent } from './content/companyManager/delete-company/delete-company.component';
+import { UpdateCompanyComponent } from './content/companyManager/update-company/update-company.component';
 // import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
 
 
@@ -79,13 +82,18 @@ export const appRoutes: Routes = [
   {path:'page-product',component:PageProductComponent,data:{title: 'Page-Product'}},
   {path:'delete-product/:id',component:DeleteProductComponent,data:{title: 'Delete-Product'}},
   {path:'update-product/:id',component:UpdateProductComponent,data:{title: 'Update-Product'}},
+
   {path:'page-company',component:PageCompanyComponent,data:{title: 'Page-Company'}},
   {path:'create-company',component:CreateCompanyComponent,data:{title: 'Create-Company'}},
+  {path:'delete-company/:id',component:DeleteCompanyComponent,data:{title: 'Delete-Company'}},
+  {path:'update-company/:id',component:UpdateCompanyComponent,data:{title: 'Update-Company'}},
+
 
   {path:'create-tour',component:CreateTourComponent,data:{title: 'Create-Tour'}},
   {path:'delete-tour/:id',component:DeleteTourComponent,data:{title: 'Delete-Tour'}},
   {path:'page-tour',component:PageTourComponent,data:{title: 'Page-Tour'}},
   {path:'edit-tour/:id',component:EditTourComponent,data:{title: 'Update-Tour'}},
+  {path:'detail-tour/:id',component:DetailTourComponent,data:{title: 'Detail-Tour'}},
 
   { path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -94,7 +102,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent, DeleteCategoryComponent, DeleteUserComponent, CreateProductComponent, PageProductComponent, DeleteProductComponent, UpdateProductComponent, PageCompanyComponent, CreateCompanyComponent, PageTourComponent, CreateTourComponent, DeleteTourComponent, EditTourComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, ChangePasswordComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, ChangeProfileComponent, PageUserComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent, DeleteCategoryComponent, DeleteUserComponent, CreateProductComponent, PageProductComponent, DeleteProductComponent, UpdateProductComponent, PageCompanyComponent, CreateCompanyComponent, PageTourComponent, CreateTourComponent, DeleteTourComponent, EditTourComponent, DetailTourComponent, DeleteCompanyComponent, UpdateCompanyComponent],
   imports: [
     FormsModule,
     MatNativeDateModule,

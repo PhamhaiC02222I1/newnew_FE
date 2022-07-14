@@ -1,0 +1,85 @@
+<div class="container" *ngIf="companys">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0; text-align: center">
+                <mat-card-title style="color: #bd4147" class="alert alert-primary">Old Company Name</mat-card-title>
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Name Company:</b>{{companys.companyName}}</mat-card-title>
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Description:</b>{{companys.description}}</mat-card-title>
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Date:</b>{{companys.establishmentDate}}</mat-card-title>
+                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">website:</b>{{companys.website}}</mat-card-title>
+                <img class="img" [src]="companys.image">
+<!--                <mat-card-title style="color: #ff03cc"><b style="color: #2b542c">Category:</b>{{products.category.name}}-->
+<!--                </mat-card-title>-->
+
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0;">
+                <form class="edit-category" #f="ngForm" (ngSubmit)="ngSubmit()&&f.form.valid" novalidate>
+
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <mat-card-title style="color: #2b542c" class="alert alert-warning">New Company Name
+                    </mat-card-title>
+                    <mat-form-field style="width: 300px;" appearance="outline">
+                        <mat-label>New Name Company:</mat-label>
+                        <input name="companyName" matInput placeholder="Fill name category in the form ..."
+                               [(ngModel)]="companys.companyName" #companyName="ngModel" required>
+                        <mat-icon color="accent" matSuffix>edit</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 300px;" appearance="outline">
+                        <mat-label>Description:</mat-label>
+                        <input name="description" matInput placeholder="Fill description in the form ..."
+                               [(ngModel)]="companys.description" #description="ngModel" required>
+                        <mat-icon color="accent" matSuffix>edit</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 300px;" appearance="outline">
+                        <mat-label>Date:</mat-label>
+                        <input name="establishmentDate" matInput placeholder="Fill name category in the form ..."
+                               [(ngModel)]="companys.establishmentDate" #establishmentDate="ngModel" required>
+                        <mat-icon color="accent" matSuffix>edit</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 300px;" appearance="outline">
+                        <mat-label>Date:</mat-label>
+                        <input name="website" matInput placeholder="Fill name category in the form ..."
+                               [(ngModel)]="companys.website" #website="ngModel" required>
+                        <mat-icon color="accent" matSuffix>edit</mat-icon>
+                    </mat-form-field>
+                    <br>
+
+<!--                    <mat-form-field style="width: 350px" appearance="outline">-->
+<!--                        <mat-label>Category</mat-label>-->
+<!--                        <mat-select [formControl]="animalControl" [(ngModel)]="companys.category" required>-->
+<!--                            &lt;!&ndash;                            <mat-option></mat-option>&ndash;&gt;-->
+<!--                            <mat-option *ngFor="let cate of category" [value]="cate">-->
+<!--                                {{cate.name}}-->
+<!--                            </mat-option>-->
+<!--                        </mat-select>-->
+<!--                        <mat-error *ngIf="animalControl.hasError('required')">Please choose a Product</mat-error>-->
+
+<!--                    </mat-form-field>-->
+                    <!--                    <mat-error *ngIf="!checkAvatar">Please upload avatar</mat-error>-->
+                    <!--                    <app-upload-avatar style="text-align: center" (giveURLtoCreate)="onChangeAvatar($event)"></app-upload-avatar>-->
+<!--                    <br>-->
+
+
+
+                    <br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Update
+                        <mat-icon color="accent" matSuffix>edit</mat-icon>
+                    </button>
+                </form>
+                <app-upload-avatar (giveURLtoCreate)="onChangeAvatar($event)"></app-upload-avatar>
+                <mat-error *ngIf="!checkAvatar">If you want change avatar, please upload!</mat-error>
+
+            </mat-card>
+        </div>
+    </div>
+</div>
+
